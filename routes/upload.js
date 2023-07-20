@@ -14,7 +14,7 @@ const { GridFsStorage } = require("multer-gridfs-storage")
 // GridFs Stream Requirements
 const Grid = require("gridfs-stream")
 Grid.mongo = mongoose.mongo
-const conn = mongoose.createConnection(CONNECTION_STRING)
+const conn = mongoose.createConnection(CONNECTION_STRING, { useNewUrlParser: true, useUnifiedTopology: true })
 
 // Init gfs
 let gfs
