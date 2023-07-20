@@ -29,4 +29,4 @@ server.listen(process.env.PORT, () => {
 	console.log(`Nite Messenger listening at PORT ${process.env.PORT}`)
 })
 
-// io.on("connection", socket => socketHandler(socket, io))
+io.on("connection", socket => socketHandler(socket, io))
