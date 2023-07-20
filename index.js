@@ -14,6 +14,7 @@ app.use(express.json())
 app.use(cors(__cors))
 app.use(methodOverride("_method"))
 
+const PORT = process.env.PORT || 5000
 const server = createServer(app)
 const io = new Server(server, { cors: __cors })
 
@@ -25,8 +26,8 @@ app.use("/", require("./routes/message"))
 app.use("/accounts", require("./routes/account"))
 app.use("/dp", require("./routes/upload"))
 
-server.listen(process.env.PORT, () => {
-	console.log(`Nite Messenger listening at PORT ${process.env.PORT}`)
+server.listen(PORT || 5000, () => {
+	console.log(`Nite Messenger listening at PORT ${PORT}`)
 })
 
 io.on("connection", socket => socketHandler(socket, io))
